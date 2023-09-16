@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package protos.user;
+
+// ※ bufの managed mode を使用するためgo_packageを記述していません
+
+message UserRequest {
+  string name = 1;
+  string icon = 2;
+}
+
+message UserResponse {
+  User user = 1;
+}
+
+message User {
+  string id = 1;
+  string name = 2;
+  string icon = 3;
+}
+
+service UserService {
+  rpc User(UserRequest) returns (UserResponse) {}
+}
