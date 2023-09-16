@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-package protos.user;
-
-// ※ bufの managed mode を使用するためgo_packageを記述していません
+package nnyd.user;
 
 message UserRequest {
   string name = 1;
