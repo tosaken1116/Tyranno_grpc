@@ -1,9 +1,11 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package schemas.protos.v1;
 
+
+message GenerateTotpKeyRequest {
+  string firebase_id = 1;
+}
 
 message GenerateTotpKeyResponse {
   string totp_key = 1;
@@ -12,6 +14,7 @@ message GenerateTotpKeyResponse {
 
 message VerifyTotpRequest {
   string token = 1;
+  string firebase_id = 2;
 }
 
 message VerifyTotpResponse {
@@ -20,6 +23,7 @@ message VerifyTotpResponse {
 
 message ValidateTotpRequest {
   string token = 1;
+  string firebase_id = 2;
 }
 
 message ValidateTotpResponse {
@@ -28,7 +32,7 @@ message ValidateTotpResponse {
 
 
 service TotpService {
-  rpc GenerateTotpKey(google.protobuf.Empty) returns (GenerateTotpKeyResponse) {}
+  rpc GenerateTotpKey(GenerateTotpKeyRequest) returns (GenerateTotpKeyResponse) {}
   rpc VerifyTotp(VerifyTotpRequest) returns (VerifyTotpResponse) {}
-  rpc ValidateTotp(ValidateTotpResponse) returns (ValidateTotpResponse) {}
+  rpc ValidateTotp(ValidateTotpRequest) returns (ValidateTotpResponse) {}
 }
