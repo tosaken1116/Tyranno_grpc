@@ -5,13 +5,12 @@ import "google/protobuf/empty.proto";
 package schemas.protos.v1;
 
 message User {
-  string id = 1;
-  string display_id = 2;
-  string name = 3;
-  string icon = 4;
-  string profile = 5;
-  string created_at = 6;
-  string updated_at = 7;
+  string display_id = 1;
+  string name = 2;
+  string icon = 3;
+  string profile = 4;
+  string created_at = 5;
+  string updated_at = 6;
 }
 
 message CreateUserRequest {
