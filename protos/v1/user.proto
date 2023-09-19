@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package nnyd.user;
+package schemas.protos.v1;
 
-message UserRequest {
+message CreateUserRequest {
   string name = 1;
   string icon = 2;
 }
 
-message UserResponse {
+message CreateUserResponse {
   User user = 1;
 }
 
@@ -18,5 +18,5 @@ message User {
 }
 
 service UserService {
-  rpc CreateUser(UserRequest) returns (UserResponse) {}
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
 }
