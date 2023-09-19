@@ -27,7 +27,7 @@ message ValidateTotpResponse {
 }
 
 
-service PostService {
+service TotpService {
   rpc GenerateTotpKey(google.protobuf.Empty) returns (GenerateTotpKeyResponse) {}
   rpc VerifyTotp(VerifyTotpRequest) returns (VerifyTotpResponse) {}
   rpc ValidateTotp(ValidateTotpResponse) returns (ValidateTotpResponse) {}
