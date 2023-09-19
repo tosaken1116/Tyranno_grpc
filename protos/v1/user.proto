@@ -58,7 +58,7 @@ message CheckDisplayNameRequest {
 }
 
 message CheckDisplayNameResponse {
-  bool status = 1;
+  bool isNotExist = 1;
 }
 
 service UserService {
