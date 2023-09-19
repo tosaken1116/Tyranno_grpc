@@ -17,6 +17,7 @@ message User {
 message CreateUserRequest {
   string name = 1;
   string display_id = 2;
+  string icon = 3;
 }
 
 message CreateUserResponse {

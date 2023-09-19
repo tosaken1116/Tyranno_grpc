@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "protos/v1/user.proto";
+import "schemas/protos/v1/user.proto";
 
 package schemas.protos.v1;
 
