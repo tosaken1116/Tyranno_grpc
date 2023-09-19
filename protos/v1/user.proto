@@ -1,22 +1,72 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 package schemas.protos.v1;
+
+message User {
+  string id = 1;
+  string display_id = 2;
+  string name = 3;
+  string icon = 4;
+  string profile = 5;
+  string created_at = 6;
+  string updated_at = 7;
+}
 
 message CreateUserRequest {
   string name = 1;
-  string icon = 2;
+  string display_id = 2;
 }
 
 message CreateUserResponse {
   User user = 1;
 }
 
-message User {
-  string id = 1;
-  string name = 2;
-  string icon = 3;
+message SigninResponse {
+  string token = 1;
+}
+
+message DeleteUserResponse {
+  bool status = 1;
+}
+
+message UpdateUserRequest {
+  string name = 1;
+  string display_id = 2;
+  string profile = 3;
+}
+
+message UpdateUserResponse {
+  User user = 1;
+}
+
+message GetUserRequest {
+  string display_id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message GetUsersResponse {
+  repeated User users = 1;
+}
+
+message CheckDisplayNameRequest {
+  string check_text = 1;
+}
+
+message CheckDisplayNameResponse {
+  bool status = 1;
 }
 
 service UserService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+  rpc Signin(google.protobuf.Empty) returns (SigninResponse) {}
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+  rpc DeleteUser(google.protobuf.Empty) returns (DeleteUserResponse) {}
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+  rpc GetUsers(google.protobuf.Empty) returns (GetUsersResponse) {}
+  rpc CheckDisplayName(CheckDisplayNameRequest) returns (CheckDisplayNameResponse) {}
 }
