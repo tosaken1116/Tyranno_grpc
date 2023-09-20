@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
 import "schemas/protos/v1/user.proto";
 
 package schemas.protos.v1;
@@ -89,4 +90,7 @@ service PostService {
   rpc GetReplies(GetRepliesRequest) returns (GetRepliesResponse) {}
   rpc CreateFavorite(CreateFavoriteRequest) returns (CreateFavoriteResponse) {}
   rpc DeleteFavorite(DeleteFavoriteRequest) returns (DeleteFavoriteResponse) {}
+  rpc GetMyFavoritePosts(google.protobuf.Empty) returns (GetPostsResponse) {}
+  rpc GetOthersFavoritePosts(GetUserRequest) returns (GetPostsResponse) {}
+  rpc GetUsersFavoritedPost(GetPostRequest) returns (GetUsersResponse) {}
 }
