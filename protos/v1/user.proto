@@ -11,8 +11,6 @@ message User {
   string profile = 4;
   string created_at = 5;
   string updated_at = 6;
-  int32 follow_number = 7;
-  int32 follower_number = 8;
 }
 
 message CreateUserRequest {
@@ -85,4 +83,8 @@ service UserService {
   rpc CheckDisplayName(CheckDisplayNameRequest) returns (CheckDisplayNameResponse) {}
   rpc FollowUser(FollowUserRequest) returns (FollowUserResponse) {}
   rpc UnfollowUser(UnfollowUserRequest) returns (UnfollowUserResponse) {}
+  rpc GetFollowByID(GetUserRequest) returns (GetUsersResponse) {}
+  rpc GetFollowerByID(GetUserRequest) returns (GetUsersResponse) {}
+  rpc GetMyFollow(GetUserRequest) returns (GetUsersResponse) {}
+  rpc GetMyFollower(GetUserRequest) returns (GetUsersResponse) {}
 }
