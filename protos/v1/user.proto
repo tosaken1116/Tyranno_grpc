@@ -11,6 +11,8 @@ message User {
   string profile = 4;
   string created_at = 5;
   string updated_at = 6;
+  int32 follow_number = 7;
+  int32 follower_number = 8;
 }
 
 message CreateUserRequest {
