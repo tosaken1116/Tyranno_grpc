@@ -87,6 +87,6 @@ service UserService {
   rpc UnfollowUser(UnfollowUserRequest) returns (UnfollowUserResponse) {}
   rpc GetFollowByID(GetUserRequest) returns (GetUsersResponse) {}
   rpc GetFollowerByID(GetUserRequest) returns (GetUsersResponse) {}
-  rpc GetMyFollow(GetUserRequest) returns (GetUsersResponse) {}
-  rpc GetMyFollower(GetUserRequest) returns (GetUsersResponse) {}
+  rpc GetMyFollow(google.protobuf.Empty) returns (GetUsersResponse) {}
+  rpc GetMyFollower(google.protobuf.Empty) returns (GetUsersResponse) {}
 }
