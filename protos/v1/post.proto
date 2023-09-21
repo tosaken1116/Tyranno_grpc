@@ -15,6 +15,7 @@ message Post {
   string published_at = 7;
   string created_at = 8;
   string updated_at = 9;
+  bool is_favorited = 10;
 }
 
 message CreatePostRequest {
